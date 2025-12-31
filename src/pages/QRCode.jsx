@@ -5,15 +5,17 @@ const QRCode = () => {
   // Get the current URL base (for production, this should be your actual domain)
   const getMenuUrl = () => {
     if (typeof window !== "undefined") {
-      // Get the current origin and ensure it points to the menu
+      // Use the current origin to ensure it works in production
       const origin = window.location.origin;
-      return `${origin}/menu`;
+      // Ensure we use absolute URL without trailing slash
+      const baseUrl = origin.replace(/\/$/, '');
+      return `${baseUrl}/menu`;
     }
     // Fallback for SSR or when window is not available
-    return "https://your-restaurant-menu.com/menu";
+    return "/menu";
   };
 
-  const menuUrl = getMenuUrl();
+  const menuUrl = React.useMemo(() => getMenuUrl(), []);
 
   const handlePrint = () => {
     window.print();
