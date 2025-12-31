@@ -1,12 +1,13 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Menu from "../pages/Menu";
 import QRCode from "../pages/QRCode";
 
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<QRCode />} />
+      <Route path="/" element={<Navigate to="/menu" replace />} />
       <Route path="/menu" element={<Menu />} />
+      <Route path="/qr" element={<QRCode />} />
     </Routes>
   );
 };

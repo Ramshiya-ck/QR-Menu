@@ -2,16 +2,17 @@ import React from "react";
 import { QRCodeSVG } from "qrcode.react";
 
 const QRCode = () => {
-  // Get the current URL base (for production, this should be your actual domain)
+  // Get the full menu URL for QR code encoding
   const getMenuUrl = () => {
     if (typeof window !== "undefined") {
-      // Use the current origin to ensure it works in production
+      // Get the full origin (protocol + hostname + port if any)
       const origin = window.location.origin;
-      // Ensure we use absolute URL without trailing slash
+      // Remove any trailing slash and append /menu
       const baseUrl = origin.replace(/\/$/, '');
+      // Return full absolute URL
       return `${baseUrl}/menu`;
     }
-    // Fallback for SSR or when window is not available
+    // Fallback - should not happen in browser
     return "/menu";
   };
 
