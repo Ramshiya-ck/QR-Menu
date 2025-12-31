@@ -1,6 +1,5 @@
 import menuData from "../data/menuData";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 const Menu = () => {
   const [activeCategory, setActiveCategory] = useState(menuData[0]?.id || 1);
@@ -118,21 +117,14 @@ const Menu = () => {
                       <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent mb-4"></div>
 
                       {/* Action Section */}
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-2">
-                          {/* Star Rating Indicator */}
-                          <div className="flex items-center space-x-1">
-                            <svg className="w-4 h-4 text-amber-400 fill-current" viewBox="0 0 20 20">
-                              <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                            </svg>
-                            <span className="text-xs sm:text-sm font-semibold text-gray-600">4.8</span>
-                          </div>
+                      <div className="flex items-center justify-center">
+                        {/* Star Rating Indicator */}
+                        <div className="flex items-center space-x-1">
+                          <svg className="w-4 h-4 text-amber-400 fill-current" viewBox="0 0 20 20">
+                            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                          </svg>
+                          <span className="text-xs sm:text-sm font-semibold text-gray-600">4.8</span>
                         </div>
-
-                        {/* Order Button - Premium Design */}
-                        <button className="px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-semibold text-sm sm:text-base rounded-xl transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-xl active:scale-95">
-                          Add to Cart
-                        </button>
                       </div>
                     </div>
 
@@ -151,15 +143,9 @@ const Menu = () => {
           <p className="text-sm sm:text-base text-gray-300 mb-2">
             Thank you for choosing us
           </p>
-          <p className="text-xs sm:text-sm text-gray-400 mb-4">
+          <p className="text-xs sm:text-sm text-gray-400">
             Restaurant Menu | www.yourwebhere.com
           </p>
-          <Link
-            to="/qr"
-            className="inline-block mt-4 px-6 py-2 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg transition-all duration-300 text-sm sm:text-base"
-          >
-            Print QR Code
-          </Link>
         </div>
       </footer>
 

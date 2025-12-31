@@ -1,6 +1,5 @@
 import React from "react";
 import { QRCodeSVG } from "qrcode.react";
-import { Link } from "react-router-dom";
 
 const QRCode = () => {
   // Get the current URL base (for production, this should be your actual domain)
@@ -8,10 +7,10 @@ const QRCode = () => {
     if (typeof window !== "undefined") {
       // Get the current origin and ensure it points to the menu
       const origin = window.location.origin;
-      return `${origin}/`;
+      return `${origin}/menu`;
     }
     // Fallback for SSR or when window is not available
-    return "https://your-restaurant-menu.com/";
+    return "https://your-restaurant-menu.com/menu";
   };
 
   const menuUrl = getMenuUrl();
@@ -25,15 +24,7 @@ const QRCode = () => {
       {/* Print Button - Hidden when printing */}
       <div className="print:hidden bg-gradient-to-r from-gray-800 to-gray-900 text-white py-4 px-6 shadow-lg">
         <div className="max-w-4xl mx-auto flex justify-between items-center flex-wrap gap-4">
-          <div className="flex items-center space-x-4">
-            <Link
-              to="/"
-              className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors"
-            >
-              ← Back to Menu
-            </Link>
-            <h1 className="text-xl font-bold">QR Code Menu</h1>
-          </div>
+          <h1 className="text-xl font-bold">QR Code Menu</h1>
           <button
             onClick={handlePrint}
             className="bg-white text-gray-900 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-md"
