@@ -2,21 +2,8 @@ import React from "react";
 import { QRCodeSVG } from "qrcode.react";
 
 const QRCode = () => {
-  // Get the full menu URL for QR code encoding
-  const getMenuUrl = () => {
-    if (typeof window !== "undefined") {
-      // Get the full origin (protocol + hostname + port if any)
-      const origin = window.location.origin;
-      // Remove any trailing slash and append /menu
-      const baseUrl = origin.replace(/\/$/, '');
-      // Return full absolute URL
-      return `${baseUrl}/menu`;
-    }
-    // Fallback - should not happen in browser
-    return "/menu";
-  };
-
-  const menuUrl = React.useMemo(() => getMenuUrl(), []);
+  // QR code URL - points directly to the menu page
+  const menuUrl = "https://qr-menu-git-main-ramshiya-cks-projects.vercel.app/menu";
 
   const handlePrint = () => {
     window.print();
